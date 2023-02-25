@@ -19,8 +19,8 @@ public class UserService implements IUservice {
     private IUserRepository userRepository;
 
     @Override
-    public Users createUser(Users users) {
-        return userRepository.save(users);
+    public Long createUser(Users users) {
+        return userRepository.save(users).getId();
     }
 
     @Override

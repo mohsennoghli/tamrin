@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUservice {
 
-    Users createUser(Users users);
+    Long createUser(Users users);
 
     Users getUserById(Long userId);
 
