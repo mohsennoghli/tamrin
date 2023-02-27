@@ -4,6 +4,8 @@ import com.isc.tamrin.dao.IUserRepository;
 import com.isc.tamrin.model.Users;
 import com.isc.tamrin.service.IUservice;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserService implements IUservice {
+
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private IUserRepository userRepository;
 
@@ -47,5 +51,6 @@ public class UserService implements IUservice {
     @Override
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
+        log.info("userId : " + userId + " id delete ");
     }
 }
