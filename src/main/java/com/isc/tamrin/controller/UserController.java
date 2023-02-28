@@ -3,9 +3,12 @@ package com.isc.tamrin.controller;
 import com.isc.tamrin.model.Users;
 import com.isc.tamrin.service.impl.UserService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
@@ -18,11 +21,12 @@ import java.util.List;
 @RequestMapping("api/users")
 public class UserController {
 
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
     private UserService userService;
 
     // build create User REST API
     //http://localhost:8888/api/users/save
-    @PostMapping (value = "/save")
+    @PostMapping(value = "/save")
     public Long createUser(@RequestBody Users users) {
         return userService.createUser(users);
 
@@ -57,6 +61,7 @@ public class UserController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId) {
         userService.deleteUser(userId);
+        log.info("userId : " + userId + " id delete ");
         return new ResponseEntity<>("User successfully deleted!", HttpStatus.OK);
     }
 }

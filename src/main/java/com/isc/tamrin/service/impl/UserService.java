@@ -50,7 +50,8 @@ public class UserService implements IUservice {
 
     @Override
     public void deleteUser(Long userId) {
+
+
         userRepository.deleteById(userId);
-        log.info("userId : " + userId + " id delete ");
     }
 }
