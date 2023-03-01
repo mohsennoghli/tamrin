@@ -1,13 +1,13 @@
 package com.isc.tamrin.service.impl;
 
+import ch.qos.logback.classic.Logger;
 import com.isc.tamrin.dao.IUserRepository;
 import com.isc.tamrin.model.Users;
 import com.isc.tamrin.service.IUservice;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.hibernate.validator.internal.util.logging.LoggerFactory;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +18,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserService implements IUservice {
 
-    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private IUserRepository userRepository;
 
